@@ -3,7 +3,7 @@
     <head>
         <title>🧑‍💻 Compendium</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-twilight.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
 
         <style>
@@ -25,11 +25,120 @@
         </header>
 
         <section>
-            <h2>HTML</h2>
-        </section>
-
-        <section>
             <h2>JavaScript</h2>
+            <h3>Fundamentals</h3>
+            <ul>
+                <li>Variable names can contain <code class="lang-javascript">_</code> and <code class="lang-javascript">$</code>.</li>
+                <li><code class="lang-javascript">NaN**0</code> is <code class="lang-javascript">1</code>.</li>
+                <li><code class="lang-javascript">NaN</code> is not equal to itself. Use 
+                <code class="lang-javascript">isNaN()</code> to check for <code class="lang-javascript">NaN</code>.</li>
+                <li><code class="lang-javascript">typeof null</code> is <code class="lang-javascript">object</code> (bug).</li>
+                <li><code class="lang-javascript">typeof alert</code> is <code class="lang-javascript">function</code>.</li>
+                <li>
+                    In numeric conversion <code class="lang-javascript">undefined</code> becomes <code class="lang-javascript">NaN</code> and
+                    <code class="lang-javascript">null</code> becomes <code class="lang-javascript">0</code>.
+                </li>
+                <li>
+                    In boolean conversion <code class="lang-javascript">0</code>, <code class="lang-javascript">''</code>,
+                    <code class="lang-javascript">null</code>, <code class="lang-javascript">undefined</code> and <code class="lang-javascript">NaN</code>,
+                    becomes <code class="lang-javascript">false</code> and other values become <code class="lang-javascript">true</code>.
+                </li>
+                <li>Unary plus operator can be used for numeric conversion.</li>
+                <li>The comma operator allows us to evaluate several expressions. Each of them is evaluated but only the result of the last one is returned.</li>
+                <li>When comparing values of different types, JavaScript converts the values to numbers.</li>
+                <li>Use strict equality check <code class="lang-javascript">===</code> and <code class="lang-javascript">!==</code> as they disallow type coercion.</li>
+                <li><code class="lang-javascript">null</code> and <code class="lang-javascript">undefined</code> are equal to each other but not to any other value.</li>
+                <li>A double NOT <code class="lang-javascript">!!</code> can be used to convert a value to boolean type.</li>
+                <li>The OR <code class="lang-javascript">||</code> operator finds the first truthy value.</li>
+                <li>The AND <code class="lang-javascript">&&</code> operator finds the first falsy value.</li>
+                <li>The nullish coaleascing <code class="lang-javascript">??</code> operator finds the first defined(neither 
+                    <code class="lang-javascript">null</code> nor <code class="lang-javascript">undefined</code>) value.
+                </li>
+                <li><a href="https://javascript.info/while-for#labels-for-break-continue" target="_blank">Labels for break and continue</a></li>
+                <li><code class="lang-javascript">switch</code> uses strict equality check.</li>
+                <li>
+                    <a href="https://dmitripavlutin.com/differences-between-arrow-and-regular-functions/" target="_blank">
+                    5 Differences Between Arrow and Regular Functions</a>
+                </li>
+            </ul>
+
+            <h3>Object</h3>
+            <ul>
+                <li>
+<pre><code class="lang-javascript">
+let obj = new Object(); // "object constructor" syntax
+let obj = {}; // "object literal" syntax
+obj.prop = 5;
+obj[hello + "world"] = 7; // computed property
+delete obj.prop; // to remove a property
+
+// property value shorthand
+let user = {
+  name,  // same as name:name
+  age: 30
+};
+
+// iterate over an object
+for (let key in obj) {
+    // ...
+}</code></pre>
+                </li>
+                <li>Object property names can be any string or symbol.</li>
+                <li>To check for existence for key in object use <code class="lang-javascript">in</code> operator.</li>
+                <li>In an object integer properties are sorted, others appear in creation order.</li>
+                <li>For shallow copying use <code class="lang-javascript">Object.assign()</code>.</li>
+                <li>
+                    For deep copying use <code class="lang-javascript">JSON.parse(JSON.stringify(obj))</code> or 
+                    <code class="lang-javascript">structuredClone(obj)</code> 
+                    (<a href="https://chatgpt.com/share/68307abb-37b4-8005-b75d-718d70954ed5" target="_blank">comparison</a>).
+                </li>
+                <li>
+                    <a href="https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/" target="_blank">
+                    Gentle Explanation of "this" in JavaScript</a>
+                </li>
+                <li>
+                    Constructor and operator <code class="lang-javascript">new</code>.
+<pre><code class="lang-javascript">
+function Obj(name) {
+  this.name = name;
+}
+
+let obj = new Obj("Abhinav");</code></pre>
+                </li>
+                <li>
+                    Inside a function, we can check whether it was called with <code class="lang-javascript">new</code> or without it, 
+                    using a special <code class="lang-javascript">new.target</code> property. <br>
+                    It is undefined for regular calls and equals the function if called with <code class="lang-javascript">new</code>.
+                </li>
+                <li>
+                    If <code class="lang-javascript">return</code> is called with an object, then the object is returned instead of <code class="lang-javascript">this</code>.
+                    If <code class="lang-javascript">return</code> is called with a primitive, it's ignored.
+                </li>
+                <li>
+                    The optional chaining <code class="lang-javascript">?.</code> is a safe way to access nested object properties, 
+                    even if an intermediate property doesn't exist. <br>
+                    The optional chaining <code class="lang-javascript">?.</code> syntax has three forms: <br>
+                    <ol>
+                        <li>
+                            <code class="lang-javascript">obj?.prop</code> - returns <code class="lang-javascript">obj.prop</code>
+                             if <code class="lang-javascript">obj</code> exists, otherwise <code class="lang-javascript">undefined</code>.
+                        </li>
+                        <li>
+                            <code class="lang-javascript">obj?.[prop]</code> - returns <code class="lang-javascript">obj[prop]</code>
+                             if <code class="lang-javascript">obj</code> exists, otherwise <code class="lang-javascript">undefined</code>.
+                        </li>
+                        <li>
+                            <code class="lang-javascript">obj.method?.()</code> - calls <code class="lang-javascript">obj.method()</code>
+                             if <code class="lang-javascript">obj.method</code> exists, otherwise returns <code class="lang-javascript">undefined</code>.
+                        </li>
+                    </ol>
+                </li>
+
+                <li><a href="https://javascript.info/symbol#summary" target="_blank">Symbol type</a></li>
+                <li><a href="https://javascript.info/object-toprimitive" target="_blank">Object to primitive conversion</a></li>
+
+            </ul>
+
         </section>
 
         <footer>
