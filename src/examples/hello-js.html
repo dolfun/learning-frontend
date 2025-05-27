@@ -14,10 +14,18 @@
         <button id="submitButton">Submit</button>
         </div>
 
-        <script src="hello-js.js"></script>
-
         <footer>
             Do check out my <a href="https://github.com/dolfun" target="_blank">GitHub</a> page!
         </footer>
+
+        <script>
+            const button = document.getElementById("submitButton");
+            button.addEventListener("click", () => {
+                const input = document.getElementById("nameInput");
+                const name = input.value;
+                
+                alert(`Hello ${name}, hope you're having a great day!`);
+            });
+        </script>
     </body>
 </html>
