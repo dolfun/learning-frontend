@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>🧑‍💻 "this" binding</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+
+        <style>
+            pre[class*="language-"] {
+                padding: 0;
+                background-color: #202b38;
+            }
+
+            code[class*="language-"] {
+                font-size: 90%;
+                background-color: #161f27 !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>🧑‍💻 "this" binding</h1>
+        </header>
+
+<pre><code class="lang-javascript">
+let person = {
+  name: 'Abhinav',
+  greet: function () {
+    console.log(`Hello ${this.name}!`);
+
+    let arrow = () => console.log(`Hello ${this.name} from arrow!`);
+    arrow();
+
+    let func = function () {
+      console.log(`Hello ${this.name} from func!`);
+    };
+    func.call(this);
+  },
+};
+
+person.greet();
+
+let method = person.greet;
+method();
+
+let binded_func = person.greet.bind(person);
+binded_func();</code></pre>
+
+        <strong>Output:</strong>
+<pre><code>Hello Abhinav!
+Hello Abhinav from arrow!
+Hello Abhinav from func!
+Hello undefined!
+Hello undefined from arrow!
+Hello undefined from func!
+Hello Abhinav!
+Hello Abhinav from arrow!
+Hello Abhinav from func!</code></pre>
+
+        <footer>
+            Do check out my <a href="https://github.com/dolfun" target="_blank">GitHub</a> or 
+            <a href="https://www.shadertoy.com/user/Dolfun" target="_blank">Shadertoy</a> page.
+        </footer>
+    </body>
+</html>
