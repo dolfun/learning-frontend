@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>🧑‍💻 Custom useState</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+
+        <style>
+            pre[class*="language-"] {
+                padding: 0;
+                background-color: #202b38;
+            }
+
+            code[class*="language-"] {
+                font-size: 90%;
+                background-color: #161f27 !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>🧑‍💻 Custom useState</h1>
+        </header>
+
+<pre><code class="lang-javascript">
+let counter = 0;
+const hooks = [];
+function useState(init) {
+  if (hooks[counter]) return hooks[counter++];
+  const hook = [init, (val) => hook[0] = val];
+  return hooks[counter++] = hook;
+}
+
+function callComponent(Comp) {
+  counter = 0;
+  Comp();
+}
+
+function Comp() {
+  const [state1, setState1] = useState(0);
+  const [state2, setState2] = useState(1);
+  const [state3, setState3] = useState(2);
+
+  setState1(5);
+  if (state1 == 5) {
+    setState1(0);
+    setState2(10);
+  }
+
+  setState3(state3 + 1);
+  setState3(state3 + 1);
+  setState3(state3 + 1);
+
+  console.log(state1, state2, state3);
+}
+
+callComponent(Comp);
+callComponent(Comp);
+callComponent(Comp);</code></pre>
+
+        <strong>Output:</strong>
+        <br>
+<pre><code>0 1 2
+5 1 3
+0 10 4</code></pre>
+
+        <footer>
+            Do check out my <a href="https://github.com/dolfun" target="_blank">GitHub</a> or 
+            <a href="https://www.shadertoy.com/user/Dolfun" target="_blank">Shadertoy</a> page.
+        </footer>
+    </body>
+</html>
