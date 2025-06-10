@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>🧑‍💻 Hello JS</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    </head>
-    <body>
-        <header>
-            <h1>🧑‍💻 Hello JS</h1>
-        </header>
+  <head>
+    <title>🧑‍💻 Hello JS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>🧑‍💻 Hello JS</h1>
+    </header>
 
-        <div style="display: flex;">
-        <input type="text" id="nameInput" placeholder="Enter your name">
-        <button id="submitButton">Submit</button>
-        </div>
+    <div style="display: flex">
+      <input type="text" id="nameInput" placeholder="Enter your name" />
+      <button id="submitButton">Submit</button>
+    </div>
 
-        <footer>
-            Do check out my <a href="https://github.com/dolfun" target="_blank">GitHub</a> or 
-            <a href="https://www.shadertoy.com/user/Dolfun" target="_blank">Shadertoy</a> page.
-        </footer>
+    <footer>
+      Do check out my
+      <a href="https://github.com/dolfun" target="_blank">GitHub</a> or
+      <a href="https://www.shadertoy.com/user/Dolfun" target="_blank"
+        >Shadertoy</a
+      >
+      page.
+    </footer>
 
-        <script>
-            const button = document.getElementById("submitButton");
-            button.addEventListener("click", () => {
-                const input = document.getElementById("nameInput");
-                const name = input.value;
-                
-                alert(`Hello ${name}, hope you're having a great day!`);
-            });
-        </script>
-    </body>
+    <script>
+      const button = document.getElementById("submitButton");
+      button.addEventListener("click", () => {
+        const input = document.getElementById("nameInput");
+        const name = input.value;
+
+        alert(`Hello ${name}, hope you're having a great day!`);
+      });
+    </script>
+  </body>
 </html>

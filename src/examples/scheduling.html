@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>🧑‍💻 Scheduling</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+  <head>
+    <title>🧑‍💻 Scheduling</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
 
-        <style>
-            pre[class*="language-"] {
-                padding: 0;
-                background-color: #202b38;
-            }
+    <style>
+      pre[class*="language-"] {
+        padding: 0;
+        background-color: #202b38;
+      }
 
-            code[class*="language-"] {
-                font-size: 90%;
-                background-color: #161f27 !important;
-            }
-        </style>
-    </head>
+      code[class*="language-"] {
+        font-size: 90%;
+        background-color: #161f27 !important;
+      }
+    </style>
+  </head>
 
-    <body>
-        <header>
-            <h1>🧑‍💻 Scheduling</h1>
-        </header>
+  <body>
+    <header>
+      <h1>🧑‍💻 Scheduling</h1>
+    </header>
 
-        <h2>Scheduled Counter</h2>
-        A function that calls a given function <code class="lang-javascript">n</code> times at 
-        <code class="lang-javascript">interval</code> ms apart, starting from 0.
-<pre><code class="lang-javascript">
+    <h2>Scheduled Counter</h2>
+    A function that calls a given function
+    <code class="lang-javascript">n</code> times at
+    <code class="lang-javascript">interval</code> ms apart, starting from 0.
+    <pre><code class="lang-javascript">
 function createCounter(func, n, interval) {
   let count = 0;
 
@@ -42,9 +49,9 @@ function createCounter(func, n, interval) {
 const startCounter = createCounter(console.log, 10, 500);
 startCounter();</code></pre>
 
-        <strong>Output:</strong>
-        <br>
-<pre><code>0
+    <strong>Output:</strong>
+    <br />
+    <pre><code>0
 1
 2
 3
@@ -55,10 +62,10 @@ startCounter();</code></pre>
 8
 9</code></pre>
 
-        <h2>Timeout Reset Wrapper</h2>
-        A wrapper that delays the execution of a function until after a specified timeout 
-        has passed since the last call, resetting the timer with each call.
-<pre><code class="lang-javascript">function createTimeoutWrapper(func, timeout) {
+    <h2>Timeout Reset Wrapper</h2>
+    A wrapper that delays the execution of a function until after a specified
+    timeout has passed since the last call, resetting the timer with each call.
+    <pre><code class="lang-javascript">function createTimeoutWrapper(func, timeout) {
   let id = null;
 
   return function() {
@@ -76,16 +83,16 @@ wrapper();
 wrapper();
 console.log('Multiple wrappers called.');</code></pre>
 
-        <strong>Output:</strong>
-        <br>
-<pre><code>Calling wrappers.
+    <strong>Output:</strong>
+    <br />
+    <pre><code>Calling wrappers.
 Multiple wrappers called.
 Hello!</code></pre>
 
-        <h2>Custom setInterval</h2>
-        A custom version of <code class="lang-javascript">setInterval</code> 
-        using recursive <code class="lang-javascript">setTimeout</code>.
-<pre><code class="lang-javascript">function setMyInterval(func, interval) {
+    <h2>Custom setInterval</h2>
+    A custom version of <code class="lang-javascript">setInterval</code> using
+    recursive <code class="lang-javascript">setTimeout</code>.
+    <pre><code class="lang-javascript">function setMyInterval(func, interval) {
   const id = { value: null };
 
   (function callback() {
@@ -108,18 +115,19 @@ const id = setMyInterval(() => {
 
 setTimeout(() => clearMyInterval(id), 5000);</code></pre>
 
-        <strong>Output:</strong>
-        <br>
-<pre><code>tick
+    <strong>Output:</strong>
+    <br />
+    <pre><code>tick
 tick
 tick
 tick</code></pre>
 
-        <h2>Timer object</h2>
-        A <code class="lang-javascript">Timer</code> class that repeatedly calls a function with 
-        an incrementing counter at set intervals, and allows pausing and resuming the timer 
-        using <code class="lang-javascript">pause</code> and <code class="lang-javascript">continue</code> methods.
-<pre><code class="lang-javascript">function Timer(func, interval) {
+    <h2>Timer object</h2>
+    A <code class="lang-javascript">Timer</code> class that repeatedly calls a
+    function with an incrementing counter at set intervals, and allows pausing
+    and resuming the timer using <code class="lang-javascript">pause</code> and
+    <code class="lang-javascript">continue</code> methods.
+    <pre><code class="lang-javascript">function Timer(func, interval) {
   let id = null;
   let counter = 0;
 
@@ -154,9 +162,9 @@ setTimeout(() => {
   timer.pause();
 }, 15010);</code></pre>
 
-        <strong>Output:</strong>
-        <br>
-<pre><code>Starting timer at 0s.
+    <strong>Output:</strong>
+    <br />
+    <pre><code>Starting timer at 0s.
 0
 1
 2
@@ -171,9 +179,13 @@ Continuing timer at 10s.
 9
 Pausing timer at 15s.</code></pre>
 
-        <footer>
-            Do check out my <a href="https://github.com/dolfun" target="_blank">GitHub</a> or 
-            <a href="https://www.shadertoy.com/user/Dolfun" target="_blank">Shadertoy</a> page.
-        </footer>
-    </body>
+    <footer>
+      Do check out my
+      <a href="https://github.com/dolfun" target="_blank">GitHub</a> or
+      <a href="https://www.shadertoy.com/user/Dolfun" target="_blank"
+        >Shadertoy</a
+      >
+      page.
+    </footer>
+  </body>
 </html>

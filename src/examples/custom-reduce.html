@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>🧑‍💻 Custom Reduce Function</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+  <head>
+    <title>🧑‍💻 Custom Reduce Function</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
 
-        <style>
-            pre[class*="language-"] {
-                padding: 0;
-                background-color: #202b38;
-            }
+    <style>
+      pre[class*="language-"] {
+        padding: 0;
+        background-color: #202b38;
+      }
 
-            code[class*="language-"] {
-                font-size: 90%;
-                background-color: #161f27 !important;
-            }
-        </style>
-    </head>
+      code[class*="language-"] {
+        font-size: 90%;
+        background-color: #161f27 !important;
+      }
+    </style>
+  </head>
 
-    <body>
-        <header>
-            <h1>🧑‍💻 Custom Reduce Function</h1>
-        </header>
+  <body>
+    <header>
+      <h1>🧑‍💻 Custom Reduce Function</h1>
+    </header>
 
-        <h2>Array Reduce</h2>
-<pre><code class="lang-javascript">
+    <h2>Array Reduce</h2>
+    <pre><code class="lang-javascript">
 function arrayReduce(arr, func, initial) {
   let result = initial;
   arr.forEach((val) => {
@@ -39,12 +45,12 @@ const sum = arrayReduce(arr, (result, val) => result + val);
 const prod = arrayReduce(arr, (result, val) => result * val, 2);
 console.log(sum, prod);</code></pre>
 
-        <strong>Output:</strong>
-        <br>
-        <pre><code>15 240</code></pre>
+    <strong>Output:</strong>
+    <br />
+    <pre><code>15 240</code></pre>
 
-        <h2>Object Reduce</h2>
-<pre><code class="lang-javascript">
+    <h2>Object Reduce</h2>
+    <pre><code class="lang-javascript">
 function objectReduce(obj, func, initial, ownPropertiesOnly = true) {
   let result = initial;
   for (const key in obj) {
@@ -61,13 +67,17 @@ const result = objectReduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, key, va
 }, {});
 console.log(result);</code></pre>
 
-        <strong>Output:</strong>
-        <br>
-        <pre><code>{ '1': [ 'a', 'c' ], '2': [ 'b' ] }</code></pre>
+    <strong>Output:</strong>
+    <br />
+    <pre><code>{ '1': [ 'a', 'c' ], '2': [ 'b' ] }</code></pre>
 
-        <footer>
-            Do check out my <a href="https://github.com/dolfun" target="_blank">GitHub</a> or 
-            <a href="https://www.shadertoy.com/user/Dolfun" target="_blank">Shadertoy</a> page.
-        </footer>
-    </body>
+    <footer>
+      Do check out my
+      <a href="https://github.com/dolfun" target="_blank">GitHub</a> or
+      <a href="https://www.shadertoy.com/user/Dolfun" target="_blank"
+        >Shadertoy</a
+      >
+      page.
+    </footer>
+  </body>
 </html>
